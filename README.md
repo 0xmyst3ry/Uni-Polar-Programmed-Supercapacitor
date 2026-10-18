@@ -19,12 +19,6 @@ The ESP8266 sketches need the `ESPAsyncTCP`, `ESPAsyncWebServer` and `LiquidCrys
 - **Check the thresholds.** The relay limits (12.2 V and 11.8 V) and the `A0` scaling assume one particular voltage divider. Recalibrate for your circuit.
 - These are prototype sketches and have not been through any safety review. Do not rely on them to protect a battery or a load.
 
-## License
-
-[MIT](LICENSE)
-
----
-
 # Project pitch (original write-up)
 
 The text below is the original project description. The performance and market statements in it are claims from the pitch, not results measured by the code in this repo.
@@ -67,6 +61,12 @@ Overall, the UPPSC industry offers businesses a special chance to offer cutting-
 ### (3) Wireframing/Architecture of the project flow
 
 ![image](https://github.com/0xShubh4m/Uni-Polar-Programmed-Supercapacitor/assets/130799986/6ab47739-2be4-4695-b7fb-e7337edadb58)
+
+## License
+
+[MIT](LICENSE)
+
+---
 
 
 
