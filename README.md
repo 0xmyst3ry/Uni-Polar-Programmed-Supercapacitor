@@ -1,3 +1,34 @@
+# Uni-Polar Programmed Supercapacitor
+
+Arduino and ESP8266 sketches for monitoring a storage cell's voltage and switching a relay, built for the Uni-Polar Programmed Supercapacitor (UPPSC) project. The original project pitch is kept at the bottom of this file.
+
+## What is in this repo
+
+| Sketch | Board | What it does |
+| --- | --- | --- |
+| `Arduino Code -S.ino` | Arduino (AVR) | The cleaned-up controller. Reads a voltage on `A0` (0 to 1023 mapped to 0 to 2500 mV, plus a 20 mV calibration offset), smooths it with an exponential moving average, and drives a relay on pin 8 with hysteresis (switches on at 12.2 V or more, off at 11.8 V or less, as configured). Prints voltage and relay state once per second at 9600 baud. A servo is attached on pin 9 but not used |
+| `Arduino Code -test.ino`, `Arduino Code -test/`, `Arduino generic load/`, `arduino-zero/` | Arduino | Earlier test and load variants of the same idea: relay on pin 8, 20 mV offset, an energy counter |
+| `BMS_modified.ino` | ESP8266 | Battery monitor with a 16x2 I2C LCD (address `0x27`), a relay on `D5`, and a small web page served over the board's own Wi-Fi access point |
+| `BatteryMonitoringWEBPagesketch_apr19e.ino` | ESP8266 | An earlier version of the web-page monitor |
+
+The ESP8266 sketches need the `ESPAsyncTCP`, `ESPAsyncWebServer` and `LiquidCrystal_I2C` libraries.
+
+## Before you use these on real hardware
+
+- **Change the Wi-Fi password.** Both ESP8266 sketches create an access point with the password `12345678` hard-coded in the source. Set your own before deploying.
+- **Check the thresholds.** The relay limits (12.2 V and 11.8 V) and the `A0` scaling assume one particular voltage divider. Recalibrate for your circuit.
+- These are prototype sketches and have not been through any safety review. Do not rely on them to protect a battery or a load.
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+# Project pitch (original write-up)
+
+The text below is the original project description. The performance and market statements in it are claims from the pitch, not results measured by the code in this repo.
+
 ## Uni-Polar-Programmed-Supercapacitor
 
 ### (1) Sustainable Renewable Energy Storage Problems
