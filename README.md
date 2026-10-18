@@ -7,7 +7,7 @@ Arduino and ESP8266 sketches for monitoring a storage cell's voltage and switchi
 | Sketch | Board | What it does |
 | --- | --- | --- |
 | `Arduino Code -S.ino` | Arduino (AVR) | The cleaned-up controller. Reads a voltage on `A0` (0 to 1023 mapped to 0 to 2500 mV, plus a 20 mV calibration offset), smooths it with an exponential moving average, and drives a relay on pin 8 with hysteresis (switches on at 12.2 V or more, off at 11.8 V or less, as configured). Prints voltage and relay state once per second at 9600 baud. A servo is attached on pin 9 but not used |
-| `Arduino Code -test.ino`, `Arduino Code -test/`, `Arduino generic load/`, `arduino-zero/` | Arduino | Earlier test and load variants of the same idea: relay on pin 8, 20 mV offset, an energy counter |
+| `Arduino Code -test/`, `Arduino generic load/`, `arduino-zero/` | Arduino | Earlier test and load variants of the same idea: relay on pin 8, 20 mV offset, an energy counter |
 | `BMS_modified.ino` | ESP8266 | Battery monitor with a 16x2 I2C LCD (address `0x27`), a relay on `D5`, and a small web page served over the board's own Wi-Fi access point |
 | `BatteryMonitoringWEBPagesketch_apr19e.ino` | ESP8266 | An earlier version of the web-page monitor |
 
